@@ -198,7 +198,3 @@ class IsearLoader:
         return self
 
     # def load_isear(self):
-atts_list = ["VERBAL", "ERGO"]
-tgt_list = ["EMOT", "INTS"]
-loader = IsearLoader(atts_list, tgt_list)
-data = loader.load_isear("/home/aggelos/dev/result.csv")
