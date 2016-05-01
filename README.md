@@ -22,7 +22,7 @@ There are 3 undocumented (as far as I know) fields, which are Field1 Field2 and 
 Everything you should need to know regarding the labels and values for this dataset should be in the enums.py file
 
 ## Usage
-'''
+```python
 from py_isear.enums import IsearLoader
 attributes = ['EMOT','SIT']
 target = ['TROPHO','TEMPER']
@@ -31,4 +31,4 @@ data = loader.load_isear('path/to/Isear.csv')
 data.get_data() # returns attributes
 data.get_target() # returns target
 data.get_freetext_content() # returns the text content of the database
-'''
+```
