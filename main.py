@@ -1,16 +1,20 @@
+#!/usr/bin/env python
+
+import sys
+import os
 from py_isear.isear_loader import IsearLoader
 import itertools
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.pipeline import Pipeline
-from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import SGDClassifier
-from sklearn import metrics
-import py_isear.enums
 
 import numpy
 
-data = ['TEMPER','TROPHO']
+sys.path.insert(0, os.path.dirname(__file__))
+
+
+data = ['TEMPER', 'TROPHO']
 target = ['EMOT']
 loader = IsearLoader(data,target)
 dataset = loader.load_isear('isear.csv')
@@ -28,12 +32,11 @@ y_tst_data = target_data[70:]
 text_clf = Pipeline([('vect', CountVectorizer()),
                      ('tfidf', TfidfTransformer()),
                      ('clf', SGDClassifier(loss='hinge', penalty='l2',
-                                            alpha=1e-3, n_iter=5, random_state=42)),
-                 ])
+                                           alpha=1e-3, max_iter=5, random_state=42)),
+                     ])
 fitting = text_clf.fit(x_tr_data,y_tr_data)
 res = text_clf.predict(x_tst_data)
-print res
+print(res)
 
 mn = numpy.mean(res == y_tst_data)
-print mn
-# report = metrics.classification_report(y_tst_data,re
+print(mn)

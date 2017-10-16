@@ -26,7 +26,7 @@ Everything you should need to know regarding the labels and values for this data
 from py_isear.enums import IsearLoader
 attributes = ['EMOT','SIT']
 target = ['TROPHO','TEMPER']
-loader = IsearLoader(attributes, target, true)
+loader = IsearLoader(attributes, target, True)
 data = loader.load_isear('path/to/Isear.csv')
 data.get_data() # returns attributes
 data.get_target() # returns target
