@@ -34,9 +34,11 @@ text_clf = Pipeline([('vect', CountVectorizer()),
                      ('clf', SGDClassifier(loss='hinge', penalty='l2',
                                            alpha=1e-3, max_iter=5, random_state=42)),
                      ])
-fitting = text_clf.fit(x_tr_data,y_tr_data)
+fitting = text_clf.fit(x_tr_data, y_tr_data)
 res = text_clf.predict(x_tst_data)
 print(res)
 
+# turn the set in an array of boolean T|F and take the average of those
+# 1.0 = perfect score, 0.0 is all mismatched
 mn = numpy.mean(res == y_tst_data)
 print(mn)
