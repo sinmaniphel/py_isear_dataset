@@ -1,4 +1,4 @@
-import enums
+import py_isear.enums as enums
 import csv
 
 
@@ -49,7 +49,7 @@ class NoSuchFieldException:
 class IsearLoader:
 
     def load_isear(self, s_isear_path):
-        f_isear = open(s_isear_path, "rb")
+        f_isear = open(s_isear_path, "r")
         '''
         The isear file extracted for the purpose of this initial
         loading is a pipe delimited csv-like file with headings
