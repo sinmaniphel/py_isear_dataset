@@ -23,7 +23,7 @@ Everything you should need to know regarding the labels and values for this data
 
 ## Usage
 ```python
-from py_isear.enums import IsearLoader
+from py_isear.isear_loader import IsearLoader
 attributes = ['EMOT','SIT']
 target = ['TROPHO','TEMPER']
 loader = IsearLoader(attributes, target, True)
